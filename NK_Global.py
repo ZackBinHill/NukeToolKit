@@ -2,6 +2,20 @@
 # import
 from NK_Include import *
 
+# time
+def time_():
+    time_ = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())   
+    return time_
+
+# log debug
+def log_(string):
+    sys.stdout.write ("{0}\nDEBUG:   {1}\n".format(str(time_()), str(string))
+    sys.stdout.flush()
+
+def logtoT(string):
+    sys.stdout.write ("{0}\nLOG:  {1}\n".format(str(time_()), str(string))
+    sys.stdout.flush()
+
 
 # system platform
 if platform.platform().startswith('Linux'):
@@ -22,17 +36,17 @@ def osOpen(path):
         path = path.replace('/', '\\')
         subprocess.Popen('explorer %s' % path)
     else:
-        logging.info('platform_Error')
+        log_('platform Error')
 
 
 # SHOW_PATH
 if PLATEFORM == 'linux':
     ZACK_PATH_f = '/zack_file'
     ZACK_PATH_i = '/zack_image'
-if PLATEFORM == 'mac':
+elif PLATEFORM == 'mac':
     ZACK_PATH_f = '/zack_file'
     ZACK_PATH_i = '/zack_image'
-if PLATEFORM == 'win':
+elif PLATEFORM == 'win':
     ZACK_PATH_f = 'Y:\\zack_file'
     ZACK_PATH_i = 'W:\\zack_image'
 
@@ -42,7 +56,9 @@ ZACK_IMAGE_SEVER = ZACK_PATH_i
 
 # defined nuke plugin path
 def NUKE_PLUGIN_PATH_(*argv):
-    pass
+    NUKE_PLUGIN_PATH_ = "C:\git_repository\NukeToolKit"
+    return NUKE_PLUGIN_PATH_
+
 ZACK_PLUGIN_PATH = NUKE_PLUGIN_PATH_
 
 
@@ -56,8 +72,7 @@ try:
     nask = nuke.ask
     ntprint = nuke.tprint
 except NameError,e:
-    logging.info(e)
-
+    log_(e)
 
 # get username
 def USERNAME_():
@@ -65,7 +80,7 @@ def USERNAME_():
     try:
         userName = nuke.toNode('preferences')['pref_login_name'].getValue()
     except NameError,e:
-        logging.info(e)
+        log_(e)
         pass
     if not userName:
         userName = getpass.getuser()
