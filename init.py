@@ -34,7 +34,10 @@ if not nuke_GUI:
 
 # nuke knob default
 # knob
+nuke.knobDefault('EXPTool.mode', '0') 
+nuke.knobDefault('Root.format', 'HD')
 
+
 # label
 nuke.knobDefault('EXPTool.label', '[value mode]')
 nuke.knobDefault('Merage.label', '[value mix]')
@@ -55,9 +58,6 @@ nuke.knobDefault('Dissolve.label', '[value witch]')
 
 
 # nuke function
-
-
-
 
 
 
