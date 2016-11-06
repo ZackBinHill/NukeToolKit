@@ -8,7 +8,7 @@ nuke_home_path_ = NUKE_PLUGIN_PATH_()
 logtoT('Find NUKE_PLUGIN_PATH: {0}\n'.format(nuke_home_path))
 
 # nuke plugin path
-targetDirs = [opj(nuke_home_path_, _dir) for _dir in os.listdir(nuke_home_path_) if os.path.isdir(opj(nuke_home_path_, _dir)))]
+targetDirs = [opj(nuke_home_path_, _dir) for _dir in os.listdir(nuke_home_path_) if os.path.isdir(opj(nuke_home_path_, _dir))]
 
 nukePattern = re.compile('nuke\.([A-Z]+)$')
 sysPattern = re.compile('sys\.([A-Z]+)$')
@@ -37,7 +37,7 @@ if not nuke_GUI:
 nuke.knobDefault('EXPTool.mode', '0') 
 nuke.knobDefault('Root.format', 'HD')
 
-
+
 # label
 nuke.knobDefault('EXPTool.label', '[value mode]')
 nuke.knobDefault('Merage.label', '[value mix]')
